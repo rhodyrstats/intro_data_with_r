@@ -1,0 +1,122 @@
+---
+title: "Intro Data with R"
+author: "Rachel Schwartz and Jeff Hollister"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## 1. Getting Started
+
+**R** is a versatile, free data handling software widely-used by scientists. **R** is great for organizing data, analyzing data, and presenting data. 
+
+**Log in to the R Studio server at https://celsrs.uri.edu/. ** Use FirstnameLastname as your user id and your URI ID number as your password.
+
+Here is some basic vocabulary you will need when using **R**.
+
+* **R script:** the lines of code that you are writing (filename.R)
+* **R project:** your **R** script, any variables you have created, and your current R environment (filename.Rproj)
+* **Variable:** a way to store your data for use in the **R** script. For example, if you type x=3 into **R**, then **R** now stores x (the variable) as the number 3.
+* **Package:** a set of functions/codes that you can load into your script (examples - gsheet, ggplot2)
+* **Function:** an action or calculation that you perform on your variables (examples - gsheet2tbl, subset, mean, library)
+* **Comment:** does not run as code, starts with #. You use comments to keep track of what your code is doing
+
+More information on **R** is at [http://www.datacarpentry.org/R-ecology-lesson/00-before-we-start.html#why_learn_r](http://www.datacarpentry.org/R-ecology-lesson/00-before-we-start.html#why_learn_r).
+
+### Helpful Hints
+
+*	Uppercase/lowercase matters!
+*	Spaces and empty lines do not matter in your code
+*	Do not use spaces in your variable names or file names (use _ or - or . )
+*	Links to GoogleSheets need to be in 'single quotes'
+*	`#`Comment your code so you know what's going on
+*	Store variables using `<-`
+*	Access the datapoints in a `variable` using `variable[]`
+
+**Open RStudio and make a new project.**
+
+Select from top left corner:  
+
+  * `File` > `New Project...`
+  * `New Directory` and `Empty Project` 
+  * `Directory name:  FieldSampling`
+  * Leave the Subdirectory as the default:  ~
+
+Select from top left corner:  
+
+  * `File` > `New File` > `R Script`
+  
+Creating a new project and script will give you four windows in **R**: 
+
+* **R script:** where you type your comments and code, and save your work
+*	**R environment:** where all your variables show up and are organized
+*	**R console:** where the code runs and the text output shows. Errors show here too!
+*	**Graphical output:** where your graphs will show.
+
+### 1a. Load the packages you need
+
+The tools you need are found in "packages". Packages are like books from the library: pre-written bundles of code that can perform the tasks we want. They contain functions and commands to perform analyses. Here, we will load the `gsheet` package. 
+
+Type the code (from the grey boxes) into the SCRIPT window of RStudio (top left). With your cursor on the line of code, click Run (top right of the SCRIPT window in RStudio). The line of code will show up in the R console window once it is run (bottom left). 
+
+
+```{r lib}
+library(gsheet)
+library(tidyverse)
+```
+
+## 2. How to get your data into R
+
+### 2a. Tell R where your data is
+
+Assign the link to the data to the variable "`url`". The variable name goes on the left of the arrow and the information goes on the right.
+
+```{r load}
+url <- 'https://docs.google.com/spreadsheets/d/1U-78sk0bx0J7PD30NTe5wq8ZYtgceT1jtxB7yyhQHPY/'
+```
+Remember to click Run with your cursor on the line of code.
+Once you have Run this command, make sure your new variable shows up in the R environment window (top right).
+
+### 2b. Load the data and store it as a variable
+
+Load the data from the spreadsheet (now stored as variable `url`). Use the function `gsheet2tbl` to get the data from the website for use in **R**. This function is from the `gsheets` package. Store the data as variable `diversitydata`.
+
+```{r gsheet}
+diversitydata <- gsheet2tbl(url)
+```
+
+* The line was run correctly if you get the prompt (`>`) in the R console window (bottom left)
+*	Make sure the `diversitydata` variable shows up in the R environment (top right)
+
+### 2c. Explore your data
+
+Click on the `diversitydata` variable in the R environment. The data stored in `diversitydata` will appear in the R script window (top left). It should look just like your spreadsheet data!
+
+## 3. Plot your data
+
+Let's see how diversity differs between incoming and outgoing tides.
+
+### 3a. Create the base layer of your plot 
+
+Use the command `ggplot`:
+
+*	`diversitydata` is the name of the variable containing your data
+*	`aes` tells `ggplot` what the plot will look like ("aesthetics") including the x and y variables
+
+The graph will show up in the Graphical Output window (bottom right).
+
+```{r makeplot, fig.height=3, fig.width=5}
+ggplot(diversitydata, aes(x=tide,y=diversity))
+```
+
+### 4c. Add data points to your plot
+
+Add a `geom_boxplot()` layer to your ggplot command to add a boxplot of your data to your plot.
+
+```{r points, fig.height=3, fig.width=5}
+
+ggplot(diversitydata, aes(x=tide,y=diversity)) + geom_boxplot()
+```
+
