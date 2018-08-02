@@ -115,7 +115,7 @@ ggplot(diversitydata, aes(x=tide,y=diversity))
 
 Add a `geom_boxplot()` layer to your ggplot command to add a boxplot of your data to your plot.
 
-```{r points, fig.height=3, fig.width=5}
+```{r box1, fig.height=3, fig.width=5}
 
 ggplot(diversitydata, aes(x=tide,y=diversity)) + geom_boxplot()
 ```
@@ -126,7 +126,7 @@ Maybe diversity differs during the year so we shouldn't plot all data together.
 
 Add color - note factor
 
-```{r points, fig.height=3, fig.width=5}
+```{r box2, fig.height=3, fig.width=5}
 
 ggplot(diversitydata, aes(x=tide,y=diversity, color=as.factor(month))) + geom_boxplot()
 ```
