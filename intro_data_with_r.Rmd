@@ -111,7 +111,7 @@ The graph will show up in the Graphical Output window (bottom right).
 ggplot(diversitydata, aes(x=tide,y=diversity))
 ```
 
-### 4c. Add data points to your plot
+### 3b. Add data points to your plot
 
 Add a `geom_boxplot()` layer to your ggplot command to add a boxplot of your data to your plot.
 
@@ -120,3 +120,32 @@ Add a `geom_boxplot()` layer to your ggplot command to add a boxplot of your dat
 ggplot(diversitydata, aes(x=tide,y=diversity)) + geom_boxplot()
 ```
 
+### 3c. Plot months separately
+
+Maybe diversity differs during the year so we shouldn't plot all data together.
+
+Add color - note factor
+
+```{r points, fig.height=3, fig.width=5}
+
+ggplot(diversitydata, aes(x=tide,y=diversity, color=as.factor(month))) + geom_boxplot()
+```
+
+## 4. Filter data
+
+Since color varies by month let's filter for December and January data
+
+```{r }
+winter_diversity <- filter(diversitydata, month == 1 | month==12)
+ggplot(winter_diversity, aes(x=tide,y=diversity)) + geom_boxplot()
+```
+
+Compare incoming and outgoing
+
+```{r}
+t.test(filter(winter_diversity,tide=="incoming")$diversity,
+       filter(winter_diversity,tide=="outgoing")$diversity)
+
+```
+
+## 5. Spread and Gather
