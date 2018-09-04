@@ -1,5 +1,5 @@
 1. Getting Started
-------------------
+==================
 
 **R** is a versatile, free data handling software widely-used by
 scientists. **R** is great for organizing data, analyzing data, and
@@ -88,7 +88,7 @@ console window once it is run (bottom left).
     ## ✖ dplyr::lag()    masks stats::lag()
 
 2. How to get your data into R
-------------------------------
+==============================
 
 Before we get our data into R, let's take a look at the data in the
 Sheet. [Click
@@ -132,7 +132,7 @@ stored in `diversitydata` will appear in the R script window (top left).
 It should look just like your spreadsheet data!
 
 3. Plot your data
------------------
+=================
 
 Let's see how diversity differs between incoming and outgoing tides.
 
@@ -175,7 +175,7 @@ Add color - note factor
 ![](intro_data_with_r_files/figure-markdown_strict/box2-1.png)
 
 4. Filter data
---------------
+==============
 
 Since color varies by month let's filter for December and January data
 
@@ -202,7 +202,7 @@ Compare incoming and outgoing
     ## 0.6958824 0.5905556
 
 5. Spread and Gather
---------------------
+====================
 
 For this exercise we pre-summarized the data. However a typical raw
 dataset might look like
@@ -272,7 +272,7 @@ format data set.
     ## 6               0                0               0
 
 6. Data in Google Sheets
-------------------------
+========================
 
 We've been working with data that is easy to load into R. Let's take a
 look at the way the data is structured for easy use. Additionally, take
@@ -369,7 +369,7 @@ associates it with your data file. A folder-level readme.txt file is the
 classic way of accounting for all the files and folders in a project.
 
 Credit
-------
+======
 
 This tutorial is adapted from the BIO 104 Field Sampling Tutorial and
 the [Data Carpentry Spreadsheet Ecology

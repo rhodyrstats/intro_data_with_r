@@ -11,7 +11,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## 1. Getting Started
+# 1. Getting Started
 
 **R** is a versatile, free data handling software widely-used by scientists. **R** is great for organizing data, analyzing data, and presenting data. 
 
@@ -70,7 +70,7 @@ library(gsheet)
 library(tidyverse)
 ```
 
-## 2. How to get your data into R
+# 2. How to get your data into R
 
 Before we get our data into R, let's take a look at the data in the Sheet.  [Click here](https://docs.google.com/spreadsheets/d/1U-78sk0bx0J7PD30NTe5wq8ZYtgceT1jtxB7yyhQHPY/) to see the data.  In particular,
 
@@ -104,7 +104,7 @@ diversitydata <- gsheet2tbl(url)
 
 Click on the `diversitydata` variable in the R environment. The data stored in `diversitydata` will appear in the R script window (top left). It should look just like your spreadsheet data!
 
-## 3. Plot your data
+# 3. Plot your data
 
 Let's see how diversity differs between incoming and outgoing tides.
 
@@ -141,7 +141,7 @@ Add color - note factor
 ggplot(diversitydata, aes(x=tide,y=diversity, color=as.factor(month))) + geom_boxplot()
 ```
 
-## 4. Filter data
+# 4. Filter data
 
 Since color varies by month let's filter for December and January data
 
@@ -158,7 +158,7 @@ t.test(filter(winter_diversity,tide=="incoming")$diversity,
 
 ```
 
-## 5. Spread and Gather
+# 5. Spread and Gather
 
 For this exercise we pre-summarized the data. However a typical raw dataset might look like
 
@@ -198,7 +198,7 @@ head(alldata_long)
 head(alldata_wide[,1:7])
 ```
 
-## 6. Data in Google Sheets
+# 6. Data in Google Sheets
 
 We've been working with data that is easy to load into R. Let's take a look at the way the data is structured for easy use. Additionally, take a look at a couple of really nice posts about this storing and using spreadsheets to store and edit data.
 
@@ -246,6 +246,6 @@ You should not use formatting like color or font faces to store information in a
 
 Recording data about your data (“metadata”) is essential. Metadata should be stored as a separate file in the same directory as your data file, preferably in plain text format with a name that clearly associates it with your data file. A folder-level readme.txt file is the classic way of accounting for all the files and folders in a project.
 
-## Credit
+# Credit
 
 This tutorial is adapted from the BIO 104 Field Sampling Tutorial and the [Data Carpentry Spreadsheet Ecology lesson](https://datacarpentry.org/spreadsheet-ecology-lesson/). More detail is contained in each of these lessons.
