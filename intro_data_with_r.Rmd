@@ -155,7 +155,7 @@ t.test(filter(winter_diversity,tide=="incoming")$diversity,
 For this exercise we pre-summarized the data. However a typical raw dataset might look like
 
 ```{r}
-alldata <- read.csv("NarrBay_countdata_7.31.2018.csv") #note have to download
+alldata <- read.csv("../shared/NarrBay_countdata_7.31.2018.csv") #note have to download
 alldata <- alldata[-1,] #drop extra row of units
 
 ```
