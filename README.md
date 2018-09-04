@@ -4,7 +4,7 @@
 # Agenda
 
 - Introduction (Rachel)
-- Getting Started (Rachel)
+- [Getting Started](intro_data_with_r.md#1-getting-started) (Rachel)
 - How to get your data into R (Rachel)
 - Plot your data (Jeff)
 - Filter data (Jeff)
