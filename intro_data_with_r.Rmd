@@ -168,7 +168,7 @@ alldata <- alldata[-1,] #drop extra row of units
 ```
 
 ```{r, eval=FALSE}
-alldata <- read.csv("../shared/NarrBay_countdata_7.31.2018.csv") #note have to download
+alldata <- read.csv("~/../shared/NarrBay_countdata_7.31.2018.csv") 
 alldata <- alldata[-1,] #drop extra row of units
 ```
 
