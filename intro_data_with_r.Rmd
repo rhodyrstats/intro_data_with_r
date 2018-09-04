@@ -1,7 +1,7 @@
 ---
 title: "Intro Data with R"
 author: "Rachel Schwartz and Jeff Hollister"
-output: pdf_document
+output: md_document
 ---
 
 ```{r setup, include=FALSE}
@@ -68,6 +68,8 @@ library(tidyverse)
 ```
 
 ## 2. How to get your data into R
+
+Before we get our data into R, let's take a look at the data in the Sheet.  [Click here](https://docs.google.com/spreadsheets/d/1U-78sk0bx0J7PD30NTe5wq8ZYtgceT1jtxB7yyhQHPY/) to see the data we are working with.
 
 ### 2a. Tell R where your data is
 
