@@ -1,7 +1,9 @@
 ---
 title: "Intro Data with R"
 author: "Rachel Schwartz and Jeff Hollister"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -191,7 +193,7 @@ Let's now see how the first few columns are different than in our long format da
 
 ```{r}
 # This code returns the first 6 rows (from head()) and the first 5 columns
-head(alldata_long[,1:7])
+head(alldata_long)
 head(alldata_wide[,1:7])
 ```
 
