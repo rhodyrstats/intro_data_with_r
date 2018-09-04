@@ -2,6 +2,7 @@
 title: "Intro Data with R"
 author: "Rachel Schwartz and Jeff Hollister"
 output:
+  md_document: default
   pdf_document: default
   html_document: default
 ---
